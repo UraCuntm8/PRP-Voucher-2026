@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sports Voucher Plus Form</title>
+  <style>
+    :root {
+      --blue: #2516d8;
+      --aqua: #39e3eb;
+      --light: #e8fdff;
+      --text: #111827;
+      --muted: #5f6b7a;
+      --border: #d9e2ec;
+      --danger: #b42318;
+      --success: #067647;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #f4f7fb;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      background: #fff;
+      min-height: 100vh;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+    }
+
+    header {
+      background: linear-gradient(105deg, var(--blue) 0%, var(--blue) 68%, var(--aqua) 68%, var(--aqua) 100%);
+      color: #fff;
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 0.95;
+      letter-spacing: -1px;
+    }
+
+    .brand span {
+      display: inline-block;
+      background: var(--aqua);
+      color: var(--blue);
+      padding: 2px 8px;
+      transform: skew(-8deg);
+    }
+
+    .claim {
+      color: var(--blue);
+      font-weight: 800;
+      text-align: right;
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .claim strong {
+      display: block;
+      font-size: 42px;
+    }
+
+    main { padding: 28px 32px 34px; }
+
+    .notice {
+      background: #f0fbff;
+      border: 1px solid #bdeff6;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 22px;
+      color: #11333d;
+    }
+
+    form { display: grid; gap: 24px; }
+
+    section {
+      border-top: 4px solid var(--blue);
+      padding-top: 18px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px 20px;
+    }
+
+    .full { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--light);
+      border-radius: 8px;
+      padding: 11px 12px;
+      font-size: 15px;
+      font-family: inherit;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 3px solid rgba(57, 227, 235, 0.35);
+      border-color: var(--blue);
+      background: #fff;
+    }
+
+    .radio-row, .check-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      align-items: center;
+      padding-top: 4px;
+    }
+
+    .option {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      font-weight: 600;
+    }
+
+    .option input {
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      accent-color: var(--blue);
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 6px;
+      line-height: 1.35;
+    }
+
+    .submit-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 4px solid var(--blue);
+      padding-top: 22px;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #ffb000, #f26a00);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      padding: 15px 28px;
+      cursor: pointer;
+      box-shadow: 0 8px 16px rgba(242, 106, 0, 0.25);
+    }
+
+    button:hover { filter: brightness(0.98); }
+
+    .footer-note {
+      background: var(--blue);
+      color: #fff;
+      padding: 18px 32px 24px;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .status {
+      font-weight: 700;
+      min-height: 22px;
+    }
+
+    .status.success { color: var(--success); }
+    .status.error { color: var(--danger); }
+
+    @media (max-width: 720px) {
+      header {
+        grid-template-columns: 1fr;
+        background: linear-gradient(180deg, var(--blue) 0%, var(--blue) 72%, var(--aqua) 72%, var(--aqua) 100%);
+      }
+
+      .claim { text-align: left; }
+      .grid { grid-template-columns: 1fr; }
+      main { padding: 22px 18px 28px; }
+      .footer-note { padding: 16px 18px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <h1><span>Sports</span><br><span>Vouchers</span><br><span>Plus</span></h1>
+      </div>
+      <div class="claim">
+        Claim<br><strong>up to $200</strong>
+        <small>for children in Reception to Year 9</small>
+      </div>
+    </header>
+
+    <main>
+      <div class="notice">
+        <strong>Complete the form below and press Submit.</strong> The details will be sent securely for processing.
+      </div>
+
+      <form id="voucherForm" action="https://formspree.io/f/mjgjnqlo" method="POST">
+        <input type="hidden" name="_subject" value="New Sports Voucher Plus Submission" />
+
+        <section>
+          <h2>Voucher selection</h2>
+          <div class="radio-row">
+            <label class="option"><input type="radio" name="voucher_selection" value="1 x $100" required> This voucher is for 1 x $100</label>
+            <label class="option"><input type="radio" name="voucher_selection" value="2 x $100"> This voucher is for 2 x $100</label>
+          </div>
+          <p class="hint">2 x $100 vouchers can be combined for one activity under the same provider, or split between two different providers.</p>
+        </section>
+
+        <section>
+          <h2>Child’s information</h2>
+          <div class="grid">
+            <div>
+              <label for="child_first_name">First name</label>
+              <input id="child_first_name" name="child_first_name" autocomplete="given-name" required>
+            </div>
+            <div>
+              <label for="child_family_name">Family name</label>
+              <input id="child_family_name" name="child_family_name" autocomplete="family-name" required>
+            </div>
+            <div>
+              <label for="child_dob">Child date of birth</label>
+              <input id="child_dob" name="child_dob" type="date" required>
+            </div>
+            <div>
+              <label>Gender</label>
+              <div class="radio-row">
+                <label class="option"><input type="radio" name="gender" value="Male" required> Male</label>
+                <label class="option"><input type="radio" name="gender" value="Female"> Female</label>
+                <label class="option"><input type="radio" name="gender" value="Gender Diverse"> Gender Diverse</label>
+              </div>
+            </div>
+            <div>
+              <label>Is this the first time your child has joined this activity provider?</label>
+              <div class="radio-row">
+                <label class="option"><input type="radio" name="first_time_provider" value="Yes" required> Yes</label>
+                <label class="option"><input type="radio" name="first_time_provider" value="No"> No</label>
+              </div>
+            </div>
+            <div>
+              <label for="activity_cost">What is the cost to participate in this activity?</label>
+              <input id="activity_cost" name="activity_cost" type="number" min="0" step="0.01" placeholder="0.00" required>
+            </div>
+            <div>
+              <label>Has your child been identified as living with a disability?</label>
+              <div class="radio-row">
+                <label class="option"><input type="radio" name="living_with_disability" value="Yes" required> Yes</label>
+                <label class="option"><input type="radio" name="living_with_disability" value="No"> No</label>
+              </div>
+            </div>
+            <div>
+              <label>Is English the main language spoken at home?</label>
+              <div class="radio-row">
+                <label class="option"><input type="radio" name="english_main_language" value="Yes" required> Yes</label>
+                <label class="option"><input type="radio" name="english_main_language" value="No"> No</label>
+              </div>
+            </div>
+            <div class="full">
+              <label for="home_language">If no, what language do you speak at home?</label>
+              <input id="home_language" name="home_language">
+            </div>
+            <div class="full">
+              <label>Is your child from an Aboriginal or Torres Strait Islander background?</label>
+              <div class="radio-row">
+                <label class="option"><input type="radio" name="aboriginal_torres_strait_islander_background" value="Yes" required> Yes</label>
+                <label class="option"><input type="radio" name="aboriginal_torres_strait_islander_background" value="No"> No</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Medicare information</h2>
+          <div class="grid">
+            <div>
+              <label for="medicare_number">Medicare number</label>
+              <input id="medicare_number" name="medicare_number" inputmode="numeric" autocomplete="off">
+            </div>
+            <div>
+              <label for="reference_number">Reference number</label>
+              <input id="reference_number" name="reference_number" inputmode="numeric" autocomplete="off">
+            </div>
+            <div class="full">
+              <label for="visa_number">OR Australian visa number</label>
+              <input id="visa_number" name="visa_number" autocomplete="off">
+              <p class="hint">Enter either Medicare details or an Australian visa number.</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Parent/Guardian information</h2>
+          <div class="grid">
+            <div>
+              <label for="parent_first_name">First name</label>
+              <input id="parent_first_name" name="parent_first_name" autocomplete="given-name" required>
+            </div>
+            <div>
+              <label for="parent_family_name">Family name</label>
+              <input id="parent_family_name" name="parent_family_name" autocomplete="family-name" required>
+            </div>
+            <div class="full">
+              <label for="street_address">Street address</label>
+              <input id="street_address" name="street_address" autocomplete="street-address" required>
+            </div>
+            <div>
+              <label for="suburb">Suburb</label>
+              <input id="suburb" name="suburb" required>
+            </div>
+            <div>
+              <label for="postcode">Postcode</label>
+              <input id="postcode" name="postcode" inputmode="numeric" pattern="[0-9]{4}" required>
+            </div>
+            <div>
+              <label for="contact_number">Contact number</label>
+              <input id="contact_number" name="contact_number" type="tel" autocomplete="tel" required>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+              <p class="hint">A notification may be sent to this email address advising the authorisation of the voucher used for your child.</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="submit-area">
+          <p class="hint">By submitting this form, you confirm the details provided are correct and consent to the information being used for the Sports Voucher Plus process.</p>
+          <button type="submit">Submit</button>
+          <div id="status" class="status" aria-live="polite"></div>
+        </div>
+      </form>
+    </main>
+
+    <div class="footer-note">
+      To be presented at an approved Sports Voucher Plus provider. Not redeemable for cash, only a reduction or refund of sport, active recreation or music tuition fees. Redemption value not to exceed 2 x $100.
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('voucherForm');
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const medicare = document.getElementById('medicare_number').value.trim();
+      const ref = document.getElementById('reference_number').value.trim();
+      const visa = document.getElementById('visa_number').value.trim();
+
+      if ((!medicare || !ref) && !visa) {
+        status.textContent = 'Please enter Medicare details or an Australian visa number.';
+        status.className = 'status error';
+        return;
+      }
+
+      const formIdMissing = form.action.includes('YOUR_FORM_ID');
+      if (formIdMissing) {
+        status.textContent = 'Formspree endpoint missing. Replace YOUR_FORM_ID before publishing.';
+        status.className = 'status error';
+        return;
+      }
+
+      status.textContent = 'Submitting...';
+      status.className = 'status';
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.reset();
+          status.textContent = 'Thanks, the form has been submitted.';
+          status.className = 'status success';
+        } else {
+          status.textContent = 'Something went wrong. Please check the form and try again.';
+          status.className = 'status error';
+        }
+      } catch (error) {
+        status.textContent = 'Could not submit. Please check your connection and try again.';
+        status.className = 'status error';
+      }
+    });
+  </script>
+</body>
+</html>
